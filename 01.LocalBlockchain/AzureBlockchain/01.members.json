@@ -1,0 +1,16 @@
+[
+    {
+        "name":"EAST",
+        "minerCount" : 2,
+        "txNodeCount" : 3,
+        "minerAddress" : "0x6eb93fbfdad68416326a5d592b2679da2f1abb17",
+        "location" : "eastasia"
+    },
+    {
+        "name":"SOUTH",
+        "minerCount" : 2,
+        "txNodeCount" : 3,
+        "minerAddress" : "0x6eb93fbfdad68416326a5d592b2679da2f1abb17",
+        "location" : "southeastasia"
+    }
+]
