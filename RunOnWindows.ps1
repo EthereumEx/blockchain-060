@@ -25,6 +25,7 @@ function Invoke-RunGeth
         Expand-ZIPFile $GethZip $UnpackedPath
         $UnpackedGeth = (Get-ChildItem -Recurse -Path $UnpackedPath "geth.exe" | Select -First 1).FullName
         Copy-Item -Force $UnpackedGeth $GethExe
+        "" | Write-Host
     }
 
     $ChainData = (Join-Path $GethRoot "geth\chaindata")
@@ -34,9 +35,14 @@ function Invoke-RunGeth
     {
         $GenesisPath = (Join-Path $GethRoot "genesis.json")
         "Initialize Geth genesis block from $($GenesisPath)" | Write-Host
-        . $GethExe --datadir $($GethData) init $($GenesisPath)
+        "$GethExe --datadir $($GethData) init $($GenesisPath)" | Write-Verbose 
+        . $GethExe --datadir $GethData init $GenesisPath
+        "" | Write-Host        
     }
     
+    "Launching Geth with mining enabled" | Write-Host
+    "$GethExe --datadir $GethData --mine --minerthreads 2 --networkid 54321" | Write-Verbose
+    . $GethExe --datadir $GethData --mine --minerthreads 2 --networkid 54321
 }
 
 function Expand-ZIPFile($file, $destination)
