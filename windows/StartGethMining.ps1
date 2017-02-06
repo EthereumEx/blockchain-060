@@ -1,8 +1,8 @@
 
 function Invoke-RunGeth
 {
-    $GethRoot = (Join-Path $PSScriptRoot "geth")
-    $DownloadRoot = (Join-path $PSScriptRoot ".download")
+    $GethRoot = (Join-Path $PSScriptRoot "..\geth")
+    $DownloadRoot = (Join-path $PSScriptRoot "..\.download")
     $GethExe = (Join-Path $GethRoot "geth.exe")
 
     if (!(Test-Path $GethExe))
