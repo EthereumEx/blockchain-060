@@ -4,13 +4,13 @@ function Invoke-RunWallet
     $WalletUri = "https://github.com/ethereum/mist/releases/download/v0.8.9/Ethereum-Wallet-win64-0-8-9.zip"
     $WalletVersion = "0.8.9"
 
-    $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\"))
+    $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\.."))
     $WalletRoot = (Join-Path $ProjectRoot "wallet")
     $DownloadRoot = (Join-path $ProjectRoot ".download")
     $UnpackedPath = (Join-Path $DownloadRoot "unpacked\wallet\$($WalletVersion)")
-    $WalletExe = (Get-ChildItem -Recurse -Path $UnpackedPath "Ethereum Wallet.exe" | Select -First 1).FullName
+    $WalletExe = (Get-ChildItem -Recurse -Path $UnpackedPath "Ethereum Wallet.exe" -ErrorAction SilentlyContinue | Select -First 1).FullName
     
-    if (!(Test-Path $WalletExe))
+    if (!$WalletExe -or !(Test-Path $WalletExe))
     {
         $WalletZip = (Join-Path $DownloadRoot "wallet.zip")
         "Downloading Etherum Wallet $($WalletVersion) to $($WalletZip)" | Write-Header

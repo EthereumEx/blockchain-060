@@ -4,8 +4,8 @@ function Invoke-RunGeth
     $GethUri = "https://gethstore.blob.core.windows.net/builds/geth-windows-amd64-1.5.7-da2a22c3.zip"
     $GethVersion = "1.5.7"
 
-    $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\"))
-    $GethRoot = (Join-Path $ProjectRoot "geth")
+    $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\.."))
+    $GethRoot = (Join-Path $ProjectRoot "01.LocalBlockchain\geth")
     $DownloadRoot = (Join-path $ProjectRoot ".download")
     $GethExe = (Join-Path $GethRoot "geth.exe")
 

@@ -39,4 +39,4 @@ jspm_packages
 #generated folders
 .download/
 geth.exe
-geth/data/geth
+01.LocalBlockchain/geth/data/geth
