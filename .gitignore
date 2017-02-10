@@ -39,5 +39,5 @@ jspm_packages
 #generated folders
 .download/
 geth.exe
-01.LocalBlockchain/geth/data/geth
+01.LocalBlockchain/data/geth
 solc.exe
