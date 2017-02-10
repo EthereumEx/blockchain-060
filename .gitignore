@@ -40,3 +40,4 @@ jspm_packages
 .download/
 geth.exe
 01.LocalBlockchain/geth/data/geth
+solc.exe

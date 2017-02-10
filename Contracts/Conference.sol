@@ -1,14 +1,14 @@
 pragma solidity ^0.4.6;
 
-contract Conference {  // can be killed, so the owner gets sent the money in the end
+contract Conference { 
 
 	address public Organizer;
 	mapping (address => uint) public RegistrantsPaid;
 	uint public Registrants;
 	uint public Quota;
 
-	event Deposit(address from, uint amount); // so you can log the event
-	event Refund(address to, uint amount); // so you can log the event
+	event Deposit(address from, uint amount); 
+	event Refund(address to, uint amount); 
 
 	function Conference() 
     {
