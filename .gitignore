@@ -43,3 +43,4 @@ geth.exe
 solc.exe
 static-nodes.json
 demo.txt
+*.demo.json
