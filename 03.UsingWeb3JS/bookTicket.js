@@ -77,9 +77,8 @@ function WaitForBlock(tx, fn)
     }); 
 }
 
-function Run()
+function Run(contractAddress)
 {
-    var contractAddress = "";
     var account = "0x6eb93fbfdad68416326a5d592b2679da2f1abb17";
     var source = ReadContract();
     CompileContract(source, function(e,r){
@@ -113,4 +112,4 @@ function Run()
     });
 }
 
-Run();
+Run(process.argv.slice(2)[0]);

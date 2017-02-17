@@ -4,4 +4,11 @@ What is an Oracle?
 
 2. **Connect Stream Analyitics to EventHub to PowerBI**
 
-3. **Execute Oracle**
+3. **Setup Environment**
+npm install
+set IPC_PROVIDER=\\.\pipe\geth.ipc
+set DEBUG=oracle-demo,eventhub-oracle
+set EVENT_HUB_CONNECTION_STRING=
+set EVENTHUB_PATH=
+set CONTRACT_ADDRESS=
+node app.js

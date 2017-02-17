@@ -10,10 +10,12 @@ What is Web3.js?
 
             npm install
 
-2. **Compiling a contract**
+2. **Deploy the Conference contract**
+            
+            node deployContract.js
 
-3. **Deploy the Conference contract**
+3. **Reserve a conference ticket**
+Replace 0x0 with the contract address displayed after completing the step above.
 
-4. **Reserve a conference ticket**
-
-5. **View contract events**
+            node bookTicket.js 0x0
+4. **View contract events**
