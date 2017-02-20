@@ -60,10 +60,20 @@ a contract.
         in this case the transaction will show up as a gray transaction with a moving bar until confirmed.
 
 4. **Reserve a conference ticket**
+    * Once deployment has completed on the main page you should find a Created contract transaction
 
-5. **View events from a contract**
+    ![Created contract](../images/createdContract.jpg)
 
-6. **View a failed transaction**
+    * Click the second link in the image it's *Conference 2973*, but in your local deployment the value may differ
+    
+        You should now be at the Conference contract viewer that will allow you to interact with the contract.
+    * Click Pick A Function
+    * Click Buy Ticket, from the drop down
+    * Click Execute
+
+        At this point a new transaction will be created and ticket will be purchased. If you come back to the Conference viewer you will eventually see the Registrants increase to 1 from 0.
+
+        Feel free to explore other functions of the contract.
 
 ## Enjoy !
 
