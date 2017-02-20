@@ -1,7 +1,10 @@
 # Blockchain 0...60
-Write a story here...
+This respository contains a collection of content and examples to help inviduals with getting
+up to speed on using Ethereum.
 
-* [01 - Create and configure a private blockchain](01.LocalBlockchain/README.MD)
-* [02 - Using Ethereum Wallet: Contract interactions](02.UsingEtherumWallet/README.MD)
-* [03 - Using Web3 JS: Contract interactions](03.UsingWeb3JS/README.MD)
-* [04 - Implementing a Power BI Oracle](04.EventHubOracle/README.MD)
+Each of the scenarios below contains a walk though and with basic steps to help get you started.
+
+* [01 - Create and configure a private blockchain](01.LocalBlockchain/README.md)
+* [02 - Using Ethereum Wallet: Contract interactions](02.UsingEtherumWallet/README.md)
+* [03 - Using Web3 JS: Contract interactions](03.UsingWeb3JS/README.md)
+* [04 - Implementing a Power BI Oracle](04.EventHubOracle/README.md)
