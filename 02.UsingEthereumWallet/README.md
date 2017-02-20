@@ -30,16 +30,16 @@ a contract.
 3. **Deploy the Conference contract**
     * Click contracts
 
-    ![Click Contracts](../images/clickContracts.jpg)
+        ![Click Contracts](../images/clickContracts.jpg)
 
     * Click Deploy New Contract
 
-    ![Deploy New Contract](../images/deployNewContract.jpg)
+        ![Deploy New Contract](../images/deployNewContract.jpg)
     
     * Copy the contents of the [Conference Contract](../Contracts/Conference.sol)
     * Paste the contents of the Conference contract into the Solidity Contract source code windows
 
-    ![Paste Contract Code](../images/pasteContractCode.jpg)
+        ![Paste Contract Code](../images/pasteContractCode.jpg)
     
 4. **Reserve a conference ticket**
 
