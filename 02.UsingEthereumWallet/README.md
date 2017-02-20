@@ -40,7 +40,25 @@ a contract.
     * Paste the contents of the Conference contract into the Solidity Contract source code windows
 
         ![Paste Contract Code](../images/pasteContractCode.jpg)
+    * The contract should compile and then display a drop down on the right hand side that says
+    pick a contract.
+    * Select Conference from the drop down list
+    * Click Deploy at the bottom of the page
+    * A new window should pop up that look like this
+
+        ![Sign contract](../images/signContract.jpg)
     
+        *NOTE: The highlighted sections. Sometimes the estimation math fails and the provided value defaults
+        to 121,000. If the value of the contract you wish to deploy costs more than this you must click on 
+        the value and change it. I would suggest the estimated value +100,000.*
+    * Click Send transaction
+    
+        At this point the transaction will be signed and sent to the miner. It should only take a few seconds
+        for the transaction to be mined. If you click Wallets at the top of the UI this will take you back to the main page where you will find a list of transactions that have be submitted and their current state. 
+
+        A transaction that has less then 12 blocks after it is considered to be an unconfirmed transacation,
+        in this case the transaction will show up as a gray transaction with a moving bar until confirmed.
+
 4. **Reserve a conference ticket**
 
 5. **View events from a contract**
