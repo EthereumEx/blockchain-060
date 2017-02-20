@@ -22,10 +22,10 @@ a contract.
 
 2. **Confirm available account exists**
 
-If the wallet launches correctly and connects to the local instance of the Blockchain running the 
-UI should display a list of 3 accounts. Two accounts will have 0 ether and one account will have 1,000,000 ether that continues to go up due to mining rewards being issued.
+    If the wallet launches correctly and connects to the local instance of the Blockchain running the 
+    UI should display a list of 3 accounts. Two accounts will have 0 ether and one account will have 1,000,000 ether that continues to go up due to mining rewards being issued.
 
-![Wallet Accounts](../images/walletAccounts.jpg)
+    ![Wallet Accounts](../images/walletAccounts.jpg)
 
 3. **Deploy the Conference contract**
 
