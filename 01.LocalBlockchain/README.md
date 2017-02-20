@@ -22,6 +22,9 @@
             geth --datadir .\data --mine --minerthreads 2 --networkid 54321
 
 # FAQ #
+* What are the passwords on the files in they keystore folder?
+
+    There is currently no password on any of the files in the key store folder.
 * Is there a way to not run mining locally?
     
     Yes it is possible to not run mining locally. In order to do this a miner would need to be running on another computer.
