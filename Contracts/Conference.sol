@@ -24,12 +24,22 @@ contract Conference {
 	
 	function BuyTicket() payable 
     {
-		if (Registrants < Quota) 
-        { 
-            RegistrantsPaid[msg.sender] = msg.value;
-            Registrants++;
-            Deposit(msg.sender, msg.value);
-        }
+		if (msg.value > 0)
+		{
+			if (Registrants < Quota && RegistrantsPaid[msg.sender] == 0) 
+			{ 
+				RegistrantsPaid[msg.sender] = msg.value;
+				Registrants++;
+				Deposit(msg.sender, msg.value);
+			}
+			else
+			{
+				if (!msg.sender.send(msg.value))
+				{
+					throw;
+				}
+			}
+		}
 	}
 
 	function ChangeQuota(uint newquota) public
