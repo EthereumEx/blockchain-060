@@ -47,7 +47,7 @@
 
 * Is there a quick and painless way to deploy to Azure?
 
-    Yes the easiest way to deploy to Azure with no configuration it to use [Deploy to Azure]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FEthereumEx%2Fblockchain-060%2Fericmai%2Ftest%2F01.LocalBlockchain%2FAzureBlockchain%2Ftemplate.blockchain.json)
+    Yes the easiest way to deploy to Azure with no configuration it to use [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FEthereumEx%2Fblockchain-060%2Fericmai%2Ftest%2F01.LocalBlockchain%2FAzureBlockchain%2Ftemplate.blockchain.json)
  
 
 
