@@ -1,0 +1,114 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "consortiumName": {
+            "type": "string",
+            "metadata": {
+                "description": "A short identifier to distinguish machines in this membership"
+            },
+            "defaultValue": "B060"
+        },
+        "members": {
+            "type": "array",
+            "metadata": {
+                "description": "An array of members to create { name : 'M1', minerCount : 1, txNodeCount : 3, minerAddress : '0x1234', location : 'westus' }"
+            },
+            "defaultValue": [
+                {
+                    "name": "EAST",
+                    "minerCount": 2,
+                    "txNodeCount": 3,
+                    "minerAddress": "0x6ca393ad5e8c30e14f40c91af76bf7d79ebcbce2",
+                    "location": "eastasia"
+                },
+                {
+                    "name": "SOUTH",
+                    "minerCount": 2,
+                    "txNodeCount": 3,
+                    "minerAddress": "0x6ca393ad5e8c30e14f40c91af76bf7d79ebcbce2",
+                    "location": "southeastasia"
+                }
+            ]
+        },
+        "sshPublicKey": {
+            "type": "string",
+            "metadata": {
+                "description": "ssh public key(s) for connecting to VMs."
+            },
+            "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA1dZubGkCzIdd3vLUyEEndord3sf24gkTmgk+Dq9SX4rhtU9lTWqkx9YOIkYuD4SgpP6HgG8NRVDjQMMKTFAFFKfBbkz/LY+PvUs690/c8SYXjBVViEmEbq88Ut4DG8+L9b9+9YRBmhNZlMfuNEc9D7Hwzy2tWxHpl6eP+cqKCnuNAKqpZfrq1gL4A4ftXw2Hob2zSCQFivE2jZGkXs4qbysmHU8SEXK1ckuUpFcXAcRdz6OocfEANOJEXiRYwOoKURzPIFc6OuV6jRahPaVVjj2nbALlrThwh9GO8Tehr0tgpQFkS3IsnO5NrEQ5yfhB2L/Z+J+pbeX9yiZgNd8VCw== blockchain060"
+        },
+        "genesisJson": {
+            "type": "secureObject",
+            "metadata": {
+                "description": "The JSON content of the genesis block"
+            },
+            "defaultValue": {
+                "coinbase": "0x0",
+                "difficulty": "0x20000",
+                "extraData": "0x0",
+                "gasLimit": "0x5F5E100",
+                "mixhash": "0x0",
+                "nonce": "0x0000",
+                "parentHash": "0x0",
+                "timestamp": "0x00",
+                "alloc": {
+                    "0x6ca393ad5e8c30e14f40c91af76bf7d79ebcbce2": {
+                        "balance": "1000000000000000000000000"
+                    }
+                }
+            }
+        },
+        "gethNetworkId": {
+            "type": "securestring",
+            "metadata": {
+                "description": "A unique id used to ensure only machines on the same network can talk to each other"
+            },
+            "defaultValue": "54321"
+        },
+        "dashboardSecret": {
+            "type": "securestring",
+            "metadata": {
+                "description": "A unique string to used to ensure only machines with the secret can post to the dashboard"
+            },
+            "defaultValue": "54321"
+        }
+    },
+    "variables": {
+        "contentRoot": "https://raw.githubusercontent.com/EthereumEx/ethereum-arm-templates/master/ethereum-consortium"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "Blockchain-060",
+            "apiVersion": "2015-01-01",
+            "properties": {
+                "templateLink": {
+                    "contentVersion": "1.0.0.0",
+                    "uri": "[concat(variables('contentRoot'), '/template.consortium.json')]"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "consortiumName": {
+                        "value": "[parameters('consortiumName')]"
+                    },
+                    "members": {
+                        "value": "[parameters('members')]"
+                    },
+                    "sshPublicKey": {
+                        "value": "[parameters('sshPublicKey')]"
+                    },
+                    "genesisJson": {
+                        "value": "[parameters('genesisJson')]"
+                    },
+                    "gethNetworkId": {
+                        "value": "[parameters('gethNetworkId')]"
+                    },
+                    "dashboardSecret": {
+                        "value": "[parameters('dashboardSecret')]"
+                    }
+                }
+            }
+        }
+    ]
+}
