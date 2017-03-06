@@ -44,3 +44,5 @@ solc.exe
 static-nodes.json
 demo.txt
 *.demo.json
+
+.DS_Store
