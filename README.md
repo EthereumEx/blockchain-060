@@ -1,8 +1,8 @@
 # Blockchain 0...60
-This respository contains a collection of content and examples to help inviduals with getting
+This repository contains a collection of content and examples to help individuals with getting
 up to speed on using Ethereum.
 
-Each of the scenarios below contains a walk though and with basic steps to help get you started.
+Each of the scenarios below contain a walk though and with basic steps to help get you started.
 
 * [01 - Create and configure a private blockchain](01.LocalBlockchain/)
 * [02 - Using Ethereum Wallet: Contract interactions](02.UsingEthereumWallet/)
