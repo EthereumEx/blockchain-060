@@ -45,8 +45,8 @@ function deploy (address) {
   }
 }
 
-function deployContract (organizer, password) {
-  password = password || ''
+function deployContract (organizer, options) {
+  var password = options.password || ''
   lib.unlockAccount(organizer, password)
     .then(lib.readContract(contractPath))
     .then(lib.compileContract(contractName))
