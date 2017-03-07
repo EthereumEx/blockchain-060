@@ -9,12 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "azure-event-hubs": "0.0.4",
-    "azure-storage": "^1.3.1",
-    "bluebird": "^3.4.6",
-    "debug": "^2.2.0",
-    "moment": "^2.15.1",
-    "underscore": "^1.8.3",
-    "web3": "^0.18.2"
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0"
   }
 }
