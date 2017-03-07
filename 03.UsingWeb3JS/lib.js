@@ -1,13 +1,22 @@
 const fs = require('fs')
+const os = require('os')
 const net = require('net')
 const Web3 = require('web3')
 const Promise = require('bluebird')
 const chalk = require('chalk')
 
 const client = net.Socket()
-// const web3 = new Web3(new Web3.providers.IpcProvider('\\\\.\\pipe\\geth.ipc', client))
-const web3 = new Web3(new Web3.providers.IpcProvider('/Users/work/Library/Ethereum/geth.ipc', client))
 const contractPrefix = '<stdin>:'
+var IPCPath
+if (process.platform === 'win32') {
+  IPCPath = '\\\\.\\pipe\\geth.ipc'
+} else if (process.platform === 'darwin') {
+  IPCPath = os.homedir() + '/Library/Ethereum/geth.ipc'
+} else {
+  IPCPath = os.homedir() + '.ethereum'
+}
+
+const web3 = new Web3(new Web3.providers.IpcProvider(IPCPath, client))
 
 function unlockAccount (account, password) {
   return new Promise(function (resolve, reject) {
