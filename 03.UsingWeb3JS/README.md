@@ -11,9 +11,8 @@ What is Web3.js?
 
 2. **Deploy the Conference contract**
             
-	`node deployContract.js`
+	`node deployConference.js 0x6CA393AD5E8c30E14f40c91AF76Bf7D79EBcbcE2`
 
 3. **Reserve a conference ticket**
-Replace 0x0 with the contract address displayed after completing the step above.
-	`node bookTicket.js 0x0`
+	`node buyTicket.js --buyer 0x9dA7335F89dDF43516010Efd6Dd8Ca5CBd0121d2 --contract <address>`
 4. **View contract events**
