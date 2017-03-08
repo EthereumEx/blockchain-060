@@ -19,17 +19,22 @@ function getNumRegistrants (contract) {
   })
 }
 
-function wait (hash) {
+function wait (contract) {
+  console.log('Waiting for transaction to be mined...')
   return new Promise(function (resolve, reject) {
-    lib.web3.eth.filter('latest', function (err, result) {
-      if (err) {
-        console.error(err)
-        return reject(err)
-      }
+    var interval = setInterval(function () {
+      lib.web3.eth.getTransactionReceipt(contract.hash, function (err, res) {
+        if (err) {
+          clearInterval(interval)
+          return reject(err)
+        }
 
-      console.log(result)
-      resolve(result)
-    })
+        if (res) {
+          clearInterval(interval)
+          resolve(contract.contract)
+        }
+      })
+    }, 2000)
   })
 }
 
@@ -46,10 +51,10 @@ function getQuota (contract) {
   })
 }
 
-function buy (account, price) {
+function buy (account, fee) {
   return function (contract) {
     var data = {
-      value: price,
+      value: fee,
       from: account,
       gas: 100000
     }
@@ -62,29 +67,39 @@ function buy (account, price) {
           return reject(err)
         }
         console.log('Transaction sent with hash:', result)
-        resolve(contract)
+        resolve({
+          contract: contract,
+          hash: result
+        })
       })
     })
   }
 }
 
-function buyTicket (address, price, account, password) {
-  password = password || ''
-  lib.unlockAccount(account, password)
-    .then(lib.readContract(contractPath))
-    .then(lib.compileContract(contractName))
-    .then(lib.contractAt(address))
-    .then(getQuota)
-    .then(getNumRegistrants)
-    .then(buy(account, price))
-    .then(getNumRegistrants)
-    .then(lib.done)
-  .catch(lib.handleError)
+program
+  .option('-c, --contract <s>', 'Address of the conference contract')
+  .option('-b, --buyer <s>', 'Address of the buyer account')
+  .option('-p, --password <s>', 'Password of the account', '')
+  .option('-f, --fee <n>', 'Booking fee', parseInt, 1000)
+  .description('Book a ticket')
+  .parse(process.argv)
+
+if (!program.contract) {
+  lib.handleError('Please specify the conference contract address')
 }
 
-program
-  .arguments('address account price')
-  .option('-p', '--password', 'Password of the account')
-  .description('Deploy contract')
-  .action(buyTicket)
-  .parse(process.argv)
+if (!program.buyer) {
+  lib.handleError('Please specify the buyer\'s account address')
+}
+
+lib.unlockAccount(program.buyer, program.password)
+  .then(lib.readContract(contractPath))
+  .then(lib.compileContract(contractName))
+  .then(lib.contractAt(program.contract))
+  .then(getQuota)
+  .then(getNumRegistrants)
+  .then(buy(program.buyer, program.fee))
+  .then(wait)
+  .then(getNumRegistrants)
+  .then(lib.done)
+.catch(lib.handleError)
