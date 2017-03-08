@@ -20,14 +20,14 @@
                     "minerCount": 2,
                     "txNodeCount": 3,
                     "minerAddress": "0x6ca393ad5e8c30e14f40c91af76bf7d79ebcbce2",
-                    "location": "eastasia"
+                    "location": "canadaeast"
                 },
                 {
-                    "name": "SOUTH",
+                    "name": "CENTRAL",
                     "minerCount": 2,
                     "txNodeCount": 3,
                     "minerAddress": "0x6ca393ad5e8c30e14f40c91af76bf7d79ebcbce2",
-                    "location": "southeastasia"
+                    "location": "canadacentral"
                 }
             ]
         },
