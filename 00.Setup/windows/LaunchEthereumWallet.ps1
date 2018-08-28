@@ -1,6 +1,9 @@
 
 Set-StrictMode -Version 2
 
+# Accept all TLS security protocols
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+
 Import-Module (Join-Path $PSScriptRoot "Common") -Force
 
 $config = [PSCustomObject]@{
