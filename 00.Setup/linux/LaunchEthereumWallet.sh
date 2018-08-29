@@ -1,6 +1,3 @@
-# Download Ethereum Wallet
-# Launch it and connect to the local geth instance that's running
-
 source ./common/common.sh
 
 wallet=""
